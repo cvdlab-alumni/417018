@@ -26,6 +26,14 @@ var rectangles= function (point,point1,point2,point3,n){
 	}
 	return rectangles;
 }
+var rectangles1= function (point,point1,point2,point3,n){
+	var rectangles=STRUCT([]);
+	for(i=point[0];i<=point3[0];i=i+n){
+		var rectangle=POLYLINE([[i,point[1]],[i,point1[1]]]);
+		rectangles=STRUCT([rectangles,rectangle]);
+	}
+	return rectangles;
+}
 var grid=drawSquare([1,10],[1,22],[9,22],[9,10]);
 var grid1=drawSquare([9,10],[9,17],[39,17],[39,10]);
 var grid2=drawSquare([21,4],[21,16],[47,16],[47,4]);
@@ -42,5 +50,7 @@ var wall4=POLYLINE([[42.5,5],[42.5,11.5],[37.2,11.5],[37.2,11.3],[42.5,11.3]]);
 var wall5=POLYLINE([[38.5,5],[38.5,11.3]]);
 var wall6=POLYLINE([[44.8,7.8],[44.8,14.2]]);
 var walls=STRUCT([wall,wall1,wall2,wall3,wall4,wall5,wall6]);
-var boundary = STRUCT([polyline,polyline1,polyline2,grid,grid1,grid2,grid3,grid4,grid5,grid6,rectangles,walls]);
+var panchina=POLYLINE([[7.8,14.2],[7.8,14.8],[23.2,14.8],[23.2,14.2],[7.8,14.2]]);
+var lines=rectangles1([7.8,14.2],[7.8,14.8],[23.2,14.8],[23.2,14.2],2.2);
+var boundary = STRUCT([polyline,polyline1,polyline2,grid,grid1,grid2,grid3,grid4,grid5,grid6,rectangles,walls,panchina,lines]);
 DRAW(boundary);

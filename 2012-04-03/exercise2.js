@@ -65,6 +65,14 @@ var columns=STRUCT([column0,column1,column2,column3,column4,column5,column6,colu
 var pools=STRUCT([pool,pool1]);
 var walls=STRUCT([wall,wall1,wall2,wall3,wall4,wall5,wall6,wall7,wall8,wall9]);
 var stair=stairs([-36,0.4],[-1,3],[depthFloor]);
+var panchina=SIMPLEX_GRID([[-7.8,15.4],[-14.2,0.7],[-depthFloor-0.5,0.15]]);
+var leg0=SIMPLEX_GRID([[-10,0.4],[-14.2,0.7],[-depthFloor,0.5]]);
+var leg1=SIMPLEX_GRID([[-12.2,0.4],[-14.2,0.7],[-depthFloor,0.5]]);
+var leg2=SIMPLEX_GRID([[-14.4,0.4],[-14.2,0.7],[-depthFloor,0.5]]);
+var leg3=SIMPLEX_GRID([[-16.6,0.4],[-14.2,0.7],[-depthFloor,0.5]]);
+var leg4=SIMPLEX_GRID([[-18.8,0.4],[-14.2,0.7],[-depthFloor,0.5]]);
+var leg5=SIMPLEX_GRID([[-21,0.4],[-14.2,0.7],[-depthFloor,0.5]]);
+var bench=STRUCT([panchina,leg0,leg1,leg2,leg3,leg4,leg5]);
 var floor=STRUCT([floor0,floor1,floor2,floor3,floor4,floor5,floor6,floor7,floor8,floor9,floor10])
-var construction=STRUCT([floor,stair,walls,pools,columns,glassWindow,roof]);
+var construction=STRUCT([floor,stair,walls,pools,columns,glassWindow,roof,bench]);
 DRAW(construction);
