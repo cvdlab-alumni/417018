@@ -72,7 +72,7 @@ var leg2=SIMPLEX_GRID([[-14.4,0.4],[-14.2,0.7],[-depthFloor,0.5]]);
 var leg3=SIMPLEX_GRID([[-16.6,0.4],[-14.2,0.7],[-depthFloor,0.5]]);
 var leg4=SIMPLEX_GRID([[-18.8,0.4],[-14.2,0.7],[-depthFloor,0.5]]);
 var leg5=SIMPLEX_GRID([[-21,0.4],[-14.2,0.7],[-depthFloor,0.5]]);
-var bench=COLOR([0.94,0.90,0.55])(STRUCT([panchina,leg0,leg1,leg2,leg3,leg4,leg5]));
+var bench=COLOR([0.41,0.41,0.41])(STRUCT([panchina,leg0,leg1,leg2,leg3,leg4,leg5]));
 var floor=COLOR([0.94,0.90,0.55])(STRUCT([floor0,floor1,floor2,floor3,floor4,floor5,floor6,floor7,floor8,floor9,floor10]));
 var construction=STRUCT([floor,stair,walls,pools,columns,glassWindow,roof,bench]);
 DRAW(construction);
