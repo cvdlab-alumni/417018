@@ -43,5 +43,4 @@ var wall5=POLYLINE([[38.5,5],[38.5,11.3]]);
 var wall6=POLYLINE([[44.8,7.8],[44.8,14.2]]);
 var walls=STRUCT([wall,wall1,wall2,wall3,wall4,wall5,wall6]);
 var boundary = STRUCT([polyline,polyline1,polyline2,grid,grid1,grid2,grid3,grid4,grid5,grid6,rectangles,walls]);
-boundary = COLOR([0,0,0])(boundary);
 DRAW(boundary);
