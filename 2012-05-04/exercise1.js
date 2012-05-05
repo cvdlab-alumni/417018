@@ -37,7 +37,8 @@
   var pillarMapped = MAP(pillar)(domain2);
   var pillar1= T([0,1,2])([0.2,1,-2])(pillarMapped);
   var pillar2= T([0,1])([0.5,1])(pillarMapped);
-  pillars=STRUCT([pillarMapped,pillar1,pillar2]);
+  pillars=COLOR([139/255,69/255,19/255])(STRUCT([pillarMapped,pillar1,pillar2]));
   //pillars1=T([0,1])([0.5,1])(pillars);
-  surf1=STRUCT([surf,wing2,wing3,pillars]);
-  DRAW(surf1);
+  surf1=COLOR([0,128/255,0])(STRUCT([surf,wing2,wing3]));
+  wing0=STRUCT([pillars,surf1]);
+  DRAW(wing0);

@@ -27,6 +27,7 @@ var cells = [[0,1,2]];
 var simpli1 = SIMPLICIAL_COMPLEX(points1)(cells);
 simpli=T([0])([-3.5])(simpli);
 simpli1=T([0])([-3.5])(simpli1);
+var s=COLOR([210/255,105/255,30/255])(STRUCT([simpli1,simpli]));
 var control = [[0,0,0],[0.2,0,0.2],[0.4,0,0],[0.2,0,-0.2],[0,0,0]];
 var control1 = control.map(function(p) {return [p[0]-0.2,p[1]-0.3,p[2]]});
   var control2 = control.map(function(p) {return [p[0]-0.3,p[1]-0.6,p[2]]});
@@ -48,5 +49,7 @@ var control1 = control.map(function(p) {return [p[0]-0.2,p[1]-0.3,p[2]]});
    var ruota = TORUS_SURFACE([0.1, 0.2])([12,8]);
 var ruota1=T([0,1,2])([2.2,-1.2,0.3])(ruota);
 var ruota2=T([0,1,2])([2.2,-1.2,1.2])(ruota);
-var fusoliera=STRUCT([simpli,simpli1,piece1,piece,retroMapped,sostegni,ruota1,ruota2])
+var rEs=COLOR([0,0,0])(STRUCT([sostegni,ruota1,ruota2]));
+var fuso=COLOR([0,128/255,0])(STRUCT([piece1,piece,retroMapped]))
+var fusoliera=STRUCT([fuso,rEs,s]);
 DRAW(fusoliera);
