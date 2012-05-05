@@ -155,8 +155,17 @@ var ruota = TORUS_SURFACE([0.1, 0.2])([12,8]);
 var ruota1=T([0,1,2])([2.2,-1.2,0.3])(ruota);
 var ruota2=T([0,1,2])([2.2,-1.2,1.2])(ruota);
 var airstrip=COLOR([105/255,105/255,105/255])(SIMPLEX_GRID([[15],[0.5],[4]]));
-airstrip=T([0,1,2])([-7.5,-2,-1])(airstrip);
-var plane =STRUCT([surf3,fusoliera,stabilizzatori,ruota1,ruota2,airstrip]);
+var striscia=SIMPLEX_GRID([[-1,1],[-0.3,0.209],[-1.9,0.2]]);
+var striscia1=T([0])([2])(striscia);
+var striscia2=T([0])([4])(striscia);
+var striscia3=T([0])([6])(striscia);
+var striscia4=T([0])([8])(striscia);
+var striscia5=T([0])([10])(striscia);
+var striscia6=T([0])([12])(striscia);
+var strisce=COLOR([1,1,1])(STRUCT([striscia,striscia1,striscia2,striscia3,striscia4,striscia5,striscia6]));
+var airstrip1=STRUCT([airstrip,strisce]);
+airstrip1=T([0,1,2])([-7.5,-2,-1])(airstrip1);
+var plane =STRUCT([surf3,fusoliera,stabilizzatori,ruota1,ruota2,airstrip1]);
 DRAW(plane);
 
 
