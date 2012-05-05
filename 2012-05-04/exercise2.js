@@ -45,5 +45,8 @@ var control1 = control.map(function(p) {return [p[0]-0.2,p[1]-0.3,p[2]]});
       var sostegno4 = T([0,2])([1.75,0.4])(sostegno3);
    sostegno3 = T([0,2])([1.75,1.1])(sostegno3);
    var sostegni= STRUCT([sostegno2,sostegno1,sostegno3,sostegno4]);
-var fusoliera=STRUCT([simpli,simpli1,piece1,piece,retroMapped,sostegni])
+   var ruota = TORUS_SURFACE([0.1, 0.2])([12,8]);
+var ruota1=T([0,1,2])([2.2,-1.2,0.3])(ruota);
+var ruota2=T([0,1,2])([2.2,-1.2,1.2])(ruota);
+var fusoliera=STRUCT([simpli,simpli1,piece1,piece,retroMapped,sostegni,ruota1,ruota2])
 DRAW(fusoliera);
