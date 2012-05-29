@@ -1,3 +1,9 @@
+/**
+ * @author Alessio De Angelis
+ * 
+ * SUPER MARIO PIXEL ART FUN
+ * Inspired by this render: http://art.ngfiles.com/images/130/petelavadigger_super-mario-pixel.png
+ */
 var red = [209/255, 35/255, 26/255, 1];
 var pink = [238/255, 191/255, 139/255, 1];
 var black = [0, 0, 0, 1];
@@ -53,6 +59,11 @@ body.push(COLOR(brown)(SIMPLEX_GRID([[-15, 1], [-6, 1], [1]])));
 scmodel = STRUCT(face.concat(body));
 
 DRAW(scmodel);
+/**
+ * @author Giuseppe Zappavigna
+ * 
+ * Wall and money
+ */
 var gold= [1,215/255,0,1];
 var cuboid3=SIMPLEX_GRID([[3], [3], [1]]);
 var cuboid7=SIMPLEX_GRID([[7], [3], [1]]);
@@ -96,6 +107,9 @@ disks=T([0,1])([7.5,7.5+15+15])(disks);
 wall=T([1])([15])(wall);
 DRAW(wall);
 DRAW(COLOR(gold)(disks));
-DRAW(disk2);
-DRAW(disk3);
+
+var base1 = EXTRUDE([0.3])(COLOR(gold)(STRUCT([disk2,disk3])));
+var base2 = T([2])([0.015])(EXTRUDE([0.03])(DISK(0.1)(50)));
+DRAW(base1);
+
 //dà problemi a colorare i dischi traslati
