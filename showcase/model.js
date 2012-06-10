@@ -94,22 +94,13 @@ var longLine3=T([1])([11])(longLine);
 var lines=COLOR(black)(STRUCT([shortLine1,shortLine2,shortLine3,shortLine4,shortLine5,shortLine6,longLine1,longLine2,longLine3]));
 var cuboids=COLOR(brown)(STRUCT([cuboid3,cuboid31,cuboid32,cuboid33,cuboid34,cuboid35,cuboid36,cuboid37,cuboid71,cuboid72,cuboid73,cuboid74,cuboid75,cuboid76]));
 var wall=STRUCT([lines,cuboids]);
-var moneyCyl=CYL_SURFACE([7.5,0.7])([16,2]);
-var moneyCyl1=CYL_SURFACE([6.5,0.3])([16,2]);
+var moneyCyl=DISK([7.5])([20,30]);
+moneyCyl=EXTRUDE([0.7])(moneyCyl);
+var moneyCyl1=DISK([6.5])([20,30]);
+moneyCyl1=EXTRUDE([0.3])(moneyCyl1);
 moneyCyl1=T([2])([0.7])(moneyCyl1);
-var disk = DISK(7.5)([16,2]);
-var disk1 = DISK(6.5)([16,2]);
-var disk2 =T([0,1,2])([7.5,37.5,0.7])(disk);
-var disk3 =T([0,1,2])([7.5,7.5+15+15,1])(disk1);
-var d=STRUCT([disk,disk2,disk3]);
-var disks=STRUCT([moneyCyl,moneyCyl1,disk]);
-disks=T([0,1])([7.5,7.5+15+15])(disks);
+var money=COLOR(gold)(STRUCT([moneyCyl,moneyCyl1]));
+money=T([0,1])([7.5,38])(money);
 wall=T([1])([15])(wall);
-DRAW(wall);
-DRAW(COLOR(gold)(disks));
-
-var base1 = EXTRUDE([0.3])(COLOR(gold)(STRUCT([disk2,disk3])));
-var base2 = T([2])([0.015])(EXTRUDE([0.03])(DISK(0.1)(50)));
-DRAW(base1);
-
-//dà problemi a colorare i dischi traslati
+var model=STRUCT([wall,money]);
+DRAW(model);
